@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Quản lý dữ liệu</title>
+<style>
+/* =========================
+   BASE
+========================= */
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  margin:0;
+  padding:0;
+  background:#fafafa;
+  color:#222;
+  line-height:1.4;
+}
+
+/* =========================
+   HEADER
+========================= */
+header{
+  background:#f6f1d1;
+  color:#4a3a00;
+  padding:10px 14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #e6dca3;
+}
+
+header h1{
+  margin:0;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.5px;
+}
+
+.header-buttons button{
+  margin-left:8px;
+  padding:5px 10px;
+  font-size:13px;
+  cursor:pointer;
+  border:1px solid #d6c77a;
+  background:#fff;
+  color:#4a3a00;
+  border-radius:4px;
+}
+.header-buttons button:hover{
+  background:#fff4b8;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container{
+  display:flex;
+  padding:10px;
+  gap:10px;
+}
+
+.left-panel,
+.right-panel{
+  padding:10px;
+  background:#ffffff;
+  border-radius:10px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+
+.left-panel{
+  width:20%;
+}
+
+.right-panel{
+  width:80%;
+}
+
+/* =========================
+   TITLES
+========================= */
+.left-panel h2,
+.right-panel h2{
+  margin:0 0 10px 0;
+  font-size:16px;
+  font-weight:700;
+  color:#6b5200;
+  border-bottom:1px dashed #e6dca3;
+  padding-bottom:4px;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+.controls{
+  margin-bottom:8px;
+}
+
+.controls button{
+  margin-right:6px;
+  padding:4px 10px;
+  font-size:12px;
+  cursor:pointer;
+  border:1px solid #d6c77a;
+  background:#fffdf0;
+  color:#4a3a00;
+  border-radius:4px;
+}
+.controls button:hover{
+  background:#fff4b8;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input,
+select{
+  width:100%;
+  padding:6px 8px;
+  margin-bottom:6px;
+  border:1px solid #ddd;
+  border-radius:4px;
+  font-size:13px;
+}
+
+/* =========================
+   CATEGORY LIST
+========================= */
+ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+li{
+  padding:6px 8px;
+  margin-bottom:4px;
+  cursor:pointer;
+  background:#fffbe8;
+  border:1px solid #f1e7b6;
+  border-radius:4px;
+  font-size:13px;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+li:hover{
+  background:#fff1c8;
+}
+
+li.active{
+  background:#ffeaa0;
+  font-weight:700;
+}
+
+/* =========================
+   TABLE
+========================= */
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  margin-top:10px;
+  font-size:13px;
+}
+
+th{
+  background:#f6f1d1;
+  color:#4a3a00;
+  padding:8px 10px;
+  font-weight:700;
+  border:1px solid #e5ddb0;
+}
+
+td{
+  border:1px solid #e5ddb0;
+  padding:7px 10px;
+  vertical-align:middle;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:0;
+}
+
+/* tên tài liệu */
+td:nth-child(2){
+  max-width:280px;
+}
+
+/* link */
+td:nth-child(3){
+  max-width:320px;
+}
+
+/* cột xóa */
+td:last-child{
+  width:90px;
+  text-align:center;
+  white-space:normal;
+  overflow:visible;
+  max-width:none;
+}
+
+/* zebra */
+tbody tr:nth-child(even){
+  background:#fffdf3;
+}
+
+tbody tr:hover{
+  background:#fff2c2;
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+td button{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:4px 8px;
+  font-size:12px;
+  font-weight:600;
+  border:1px solid #c44;
+  background:#fff;
+  color:#8b0000;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+td button::before{
+  content:"🗑";
+  font-size:13px;
+}
+
+td button:hover{
+  background:#ffeaea;
+}
+
+/* =========================
+   MODAL
+========================= */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+
+.modal .modal-content{
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  min-width:300px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal h3{
+  margin-top:0;
+  font-weight:700;
+  color:#6b5200;
+}
+
+/* =========================
+   DARK MODE (body.dark)
+========================= */
+body.dark{
+  background:#1e1e1e;
+  color:#eaeaea;
+}
+
+body.dark header{
+  background:#2b2b2b;
+  color:#ffcc66;
+  border-bottom:1px solid #444;
+}
+
+body.dark .left-panel,
+body.dark .right-panel{
+  background:#2a2a2a;
+  box-shadow:none;
+}
+
+body.dark h2{
+  color:#ffcc66;
+  border-bottom-color:#444;
+}
+
+body.dark input,
+body.dark select{
+  background:#1f1f1f;
+  color:#fff;
+  border:1px solid #444;
+}
+
+body.dark li{
+  background:#262626;
+  border-color:#444;
+  color:#ddd;
+}
+
+body.dark li.active{
+  background:#3a2f00;
+  color:#ffdd88;
+}
+
+body.dark table{
+  color:#ddd;
+}
+
+body.dark th{
+  background:#333;
+  color:#ffcc66;
+  border-color:#444;
+}
+
+body.dark td{
+  border-color:#444;
+}
+
+body.dark tbody tr:nth-child(even){
+  background:#252525;
+}
+
+body.dark tbody tr:hover{
+  background:#3a3a3a;
+}
+
+body.dark td button{
+  background:#2a2a2a;
+  color:#ff8888;
+  border-color:#aa4444;
+}
+
+body.dark td button:hover{
+  background:#442222;
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width:768px){
+  .container{
+    flex-direction:column;
+  }
+
+  .left-panel,
+  .right-panel{
+    width:100%;
+  }
+
+  header h1{
+    font-size:17px;
+  }
+
+  table{
+    font-size:12px;
+  }
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+   <div class="header-buttons">
+    <button id="btnHome">Trang chính</button>
+    <button id="btnChangePass">Đổi pass</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="left-panel">
+    <h2>Danh mục</h2>
+    <div class="controls">
+      <button id="addCategory">[thêm]</button>
+      <button id="deleteCategory">[xóa]</button>
+      <button id="saveCategory">[lưu]</button>
+    </div>
+    <input type="text" id="categoryName" placeholder="Tên danh mục" />
+    <ul id="categoryList"></ul>
+  </div>
+  <div class="right-panel">
+    <h2><b>Cập nhật tài liệu</h2>
+    <div class="controls">
+      <button id="addDocument">[thêm]</button>
+      <button id="deleteCategoryDoc">[xóa danh mục]</button>
+      <button id="saveDocument">[lưu]</button>
+    </div>
+    <div class="doc-form">
+      <label>Danh mục:</label>
+      <select id="docCategory"></select>
+      <label>Tên tài liệu:</label>
+      <input type="text" id="docName" placeholder="Tên tài liệu" />
+      <label>Link:</label>
+      <input type="text" id="docLink" placeholder="Link Google Drive / YouTube / PDF / MP3 / MP4" />
+    </div>
+    <table id="docTable">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên tài liệu</th>
+          <th>Link</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal nhập / đổi pass -->
+<div id="passModal" class="modal">
+  <div class="modal-content">
+    <h3 id="passModalTitle">Nhập mật khẩu Admin</h3>
+    <input type="password" id="adminPassInput" placeholder="">
+    <button id="adminPassBtn">Xác nhận</button>
+  </div>
+</div>
+
+<div id="changePassModal" class="modal">
+  <div class="modal-content">
+    <h3>Đổi mật khẩu</h3>
+    <input type="password" id="newPass" placeholder="Nhập mật khẩu mới">
+    <button id="savePassBtn">Lưu</button>
+    <button id="cancelPassBtn">Hủy</button>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+  // ================= FIREBASE CONFIG =================
+  const firebaseConfig = {
+    apiKey: "AIzaSyBxBCDs_f1SE6g3mHiMDkk-VbxJfn_Q0r0",
+    authDomain: "giapha-truongvan.firebaseapp.com",
+    databaseURL: "https://giapha-truongvan-default-rtdb.firebaseio.com",
+    projectId: "giapha-truongvan",
+    storageBucket: "giapha-truongvan.firebasestorage.app",
+    messagingSenderId: "322268724419",
+    appId: "1:322268724419:web:9a314c6872fd713cd9b676"
+  };
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // ================= DOM =================
+  const categoryList = document.getElementById('categoryList');
+  const categoryNameInput = document.getElementById('categoryName');
+  const addCategoryBtn = document.getElementById('addCategory');
+  const deleteCategoryBtn = document.getElementById('deleteCategory');
+  const saveCategoryBtn = document.getElementById('saveCategory');
+
+  const docCategorySelect = document.getElementById('docCategory');
+  const docNameInput = document.getElementById('docName');
+  const docLinkInput = document.getElementById('docLink');
+  const addDocumentBtn = document.getElementById('addDocument');
+  const deleteCategoryDocBtn = document.getElementById('deleteCategoryDoc');
+  const saveDocumentBtn = document.getElementById('saveDocument');
+  const docTableBody = document.querySelector('#docTable tbody');
+
+  const passModal = document.getElementById('passModal');
+  const adminPassInput = document.getElementById('adminPassInput');
+  const adminPassBtn = document.getElementById('adminPassBtn');
+  const passModalTitle = document.getElementById('passModalTitle');
+
+  const changePassModal = document.getElementById('changePassModal');
+  const newPassInput = document.getElementById('newPass');
+  const savePassBtn = document.getElementById('savePassBtn');
+  const cancelPassBtn = document.getElementById('cancelPassBtn');
+
+  // ================= HELPER HASH =================
+  async function hashPass(pass){
+    const enc = new TextEncoder();
+    const buf = await crypto.subtle.digest('SHA-256', enc.encode(pass));
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+
+  // ================= ADMIN PASS =================
+  async function loadAdminHash(){
+    const snap = await get(ref(db,'adminPass'));
+    return snap.exists()? snap.val() : '';
+  }
+
+  async function smartPassCheck(){
+    let adminHash = await loadAdminHash();
+    if(!adminHash){
+      passModalTitle.textContent="Đặt mật khẩu Admin mới";
+      adminPassInput.placeholder="Nhập pass mới";
+      passModal.style.display='flex';
+      return new Promise(resolve=>{
+        adminPassBtn.onclick=async ()=>{
+          const pass=adminPassInput.value.trim();
+          if(!pass) return alert("Nhập pass mới");
+          const hash = await hashPass(pass);
+          await set(ref(db,'adminPass'),hash);
+          alert("Mật khẩu đã lưu");
+          passModal.style.display='none';
+          resolve(true);
+        }
+      });
+    } else {
+      passModalTitle.textContent="Nhập mật khẩu Admin";
+      adminPassInput.placeholder="Nhập pass";
+      passModal.style.display='flex';
+      return new Promise(resolve=>{
+        adminPassBtn.onclick=async ()=>{
+          const inputHash=await hashPass(adminPassInput.value.trim());
+          if(inputHash===adminHash){
+            passModal.style.display='none';
+            resolve(true);
+          } else {
+            alert("Pass sai!");
+            adminPassInput.value='';
+          }
+        }
+      });
+    }
+  }
+
+  // ================= RENDER =================
+  let categories={},currentCategory=null,docs=[];
+  function renderCategories(){
+    categoryList.innerHTML=''; docCategorySelect.innerHTML='';
+    Object.keys(categories).forEach(cat=>{
+      const li=document.createElement('li');
+      li.textContent=cat;
+      if(cat===currentCategory) li.classList.add('active');
+      li.onclick=()=>{currentCategory=cat;renderCategories();renderDocs();}
+      categoryList.appendChild(li);
+      const option=document.createElement('option'); option.value=cat; option.textContent=cat;
+      docCategorySelect.appendChild(option);
+    });
+    if(!currentCategory) currentCategory=Object.keys(categories)[0]||null;
+  }
+  function renderDocs(){
+    docTableBody.innerHTML='';
+    if(!currentCategory) return;
+    docs=categories[currentCategory]||[];
+    docs.forEach((doc,index)=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML=`
+        <td>${index+1}</td>
+        <td>${doc.name}</td>
+        <td>${doc.link}</td>
+        <td><button data-index="${index}">xóa</button></td>
+      `;
+      tr.querySelector('button').onclick=()=>{docs.splice(index,1); categories[currentCategory]=docs; renderDocs();}
+      docTableBody.appendChild(tr);
+    });
+  }
+
+  // ================= EVENTS =================
+  addCategoryBtn.onclick=()=>{
+    const name=categoryNameInput.value.trim();
+    if(!name) return alert("Nhập tên danh mục");
+    if(categories[name]) return alert("Danh mục đã tồn tại");
+    categories[name]=[]; currentCategory=name; renderCategories(); renderDocs();
+  };
+  deleteCategoryBtn.onclick=()=>{
+    if(!currentCategory) return alert("Chọn danh mục để xóa");
+    if(confirm(`Xóa danh mục ${currentCategory}?`)){
+      delete categories[currentCategory]; currentCategory=Object.keys(categories)[0]||null; renderCategories(); renderDocs();
+    }
+  };
+  saveCategoryBtn.onclick=async()=>{await set(ref(db,'danhmuc'),categories); alert("Danh mục đã lưu");};
+
+  addDocumentBtn.onclick=()=>{
+    if(!currentCategory) return alert("Chọn danh mục trước");
+    const name=docNameInput.value.trim(); const link=docLinkInput.value.trim();
+    if(!name||!link) return alert("Nhập tên và link tài liệu");
+    docs.push({name,link}); categories[currentCategory]=docs; renderDocs();
+    docNameInput.value=''; docLinkInput.value='';
+  };
+  deleteCategoryDocBtn.onclick=()=>{
+    if(!currentCategory) return alert("Chọn danh mục trước");
+    if(confirm(`Xóa toàn bộ tài liệu của ${currentCategory}?`)){
+      categories[currentCategory]=[]; renderDocs();
+    }
+  };
+  saveDocumentBtn.onclick=async()=>{
+    if(!currentCategory) return alert("Chọn danh mục trước");
+    await set(ref(db,'danhmuc'),categories); alert("Tài liệu đã lưu");
+  };
+
+  // ================= INIT =================
+  async function init(){const snap=await get(ref(db,'danhmuc')); categories=snap.exists()? snap.val():{}; currentCategory=Object.keys(categories)[0]||null; renderCategories(); renderDocs();}
+
+  // ================= Nút home =================
+  document.getElementById('btnHome').onclick=()=>{window.location.href='./index.html';}
+
+  // ================= Đổi pass =================
+  document.getElementById('btnChangePass').onclick=()=>{
+    newPassInput.value=''; changePassModal.style.display='flex';
+  };
+  cancelPassBtn.onclick=()=>{changePassModal.style.display='none';};
+  savePassBtn.onclick=async()=>{
+    const newPass=newPassInput.value.trim();
+    if(!newPass) return alert("Nhập mật khẩu mới");
+    const newHash = await hashPass(newPass);
+    await set(ref(db,'adminPass'),newHash);
+    alert("Mật khẩu đã thay đổi và lưu lên Firebase");
+    changePassModal.style.display='none';
+  };
+
+  // ================= RUN =================
+  await smartPassCheck();
+  await init();
+
+});
+</script>
+
+</body>
+</html>

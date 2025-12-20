@@ -1,0 +1,147 @@
+/* ===== RESET ===== */
+body{
+  margin:0;
+  font-family:"Times New Roman", Arial, sans-serif;
+  background:#000;
+  color:#000;
+}
+
+/* ===== HEADER (DÒNG 1) ===== */
+.header{
+  width:100%;
+  background:#fff;
+  text-align:center;
+  border-bottom:2px solid #000;
+  padding:10px 0;
+}
+
+.header h1{
+  color:red;
+  margin:4px 0;
+}
+
+.subtitle{
+  font-size:14px;
+  color:red;
+}
+
+.back{
+  position:absolute;
+  left:10px;
+  top:10px;
+  text-decoration:none;
+  color:#000;
+}
+
+
+.back{
+  font-size:18px;
+  color:#0066cc;      /* xanh */
+  text-decoration:none;
+}
+
+.back:hover{
+  text-decoration:underline;
+}
+
+/* ===== DÒNG 2 ===== */
+.layout{
+  display:flex;
+  min-height:calc(100vh - 70px);
+  background:#fff;
+}
+
+/* ===== CỘT TRÁI 20% ===== */
+.sidebar{
+  width:10%;
+  background:#fff;
+  color:#000;
+  padding:10px;
+  border-right:1px solid #000;
+ margin-top:45px;   
+}
+
+.sb-title{
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.sb-table{
+  width:80%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+.sb-table th{
+  text-align:left;
+  border-bottom:1px solid #000;
+  padding-bottom:4px;
+}
+
+.sb-table td{
+  padding:2px 0;
+}
+
+/* ===== CỘT PHẢI 80% ===== */
+.main{
+  width:80%;
+  padding:15px 25px;
+  background:#fff;
+}
+
+/* ===== INPUT ===== */
+.input-box{
+  border-bottom:1px solid #000;
+  padding-bottom:15px;
+  margin-bottom:15px;
+}
+
+.row{
+  margin:8px 0;
+}
+
+label{
+  display:inline-block;
+  width:90px;
+}
+
+select{
+  padding:3px;
+}
+
+#btnXem{
+  margin-top:10px;
+  padding:7px 20px;
+  cursor:pointer;
+}
+
+/* ===== RESULT ===== */
+.result h2{
+  margin-top:10px;
+color:blue;
+}
+
+.tongthe{
+  font-weight:bold;
+  margin:5px 0;
+}
+
+.block{
+  margin-top:15px;
+}
+
+.block h3{
+  color:red;
+  margin-bottom:5px;
+}
+
+.meta{
+  font-size:12px;
+  color:#666;
+}
+
+.block div,
+.block p{
+  margin-left:10px;
+}

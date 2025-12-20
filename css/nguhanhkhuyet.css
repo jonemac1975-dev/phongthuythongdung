@@ -1,0 +1,181 @@
+/* ================== RESET + FONT ================== */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #eef2f6; /* nền sáng hơn, dịu mắt */
+  color: #222;          
+  line-height: 1.6;
+}
+
+/* ================== TOPBAR ================== */
+.topbar {
+  background: linear-gradient(90deg,#7b4fa0,#a55187);
+  padding: 12px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.topbar .home {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ================== CONTAINER ================== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 20px;
+}
+
+/* ================== HEADINGS ================== */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #6a3f8f;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.block {
+  background: #ffffff;
+  margin-bottom: 25px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.block h2 {
+  margin-bottom: 15px;
+  color: #8a4f9a;
+}
+
+/* ================== FORM ROW ================== */
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 14px;
+}
+label {
+  min-width: 180px;
+  font-weight: bold;
+  color: #222;
+}
+select, button, input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+select:hover, input:hover, button:hover {
+  border-color: #7b4fa0;
+  box-shadow: 0 0 6px rgba(123,79,160,0.3);
+}
+button {
+  background: linear-gradient(90deg,#7b4fa0,#a55187);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button:hover {
+  background: linear-gradient(90deg,#a55187,#7b4fa0);
+  transform: translateY(-2px);
+}
+
+/* ================== TABLE ================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  transition: background 0.2s;
+}
+th {
+  background: #7b4fa0;
+  color: #fff;
+  font-weight: bold;
+}
+td:hover {
+  background: #f0ebf5;
+}
+.battrach td {
+  height: 45px;
+}
+
+/* ================== BIỂU ĐỒ NGŨ HÀNH ================== */
+.nguhanh-chart {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;        /* 50% bề ngang */
+  margin: 20px auto; /* căn giữa */
+  height: 220px;
+  align-items: flex-end;
+}
+
+.bar-container {
+  position: relative;
+  width: 50px;          /* thu nhỏ bề ngang mỗi cột */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar {
+  width: 100%;
+  background-color: gray; /* sẽ cập nhật JS */
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s;
+}
+
+.percent {
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: black; /* % màu đen */
+}
+
+.label {
+  font-size: 14px;
+  color: #222;
+  margin-top: 5px;
+}
+
+/* ================== KẾT LUẬN ================== */
+#ketluannguhanh {
+  margin-top: 18px;
+  font-weight: bold;
+  color: #8a4f9a;
+  padding: 12px;
+  border-left: 4px solid #6a3f8f;
+  background: #fdf5fb;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px){
+  .row{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  label{
+    min-width: auto;
+  }
+  button{
+    width: 100%;
+  }
+  .nguhanh-chart {
+    width: 90%; /* thu nhỏ trên mobile */
+  }
+}

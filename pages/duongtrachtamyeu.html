@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>DƯƠNG TRẠCH TAM YẾU</title>
+  <link rel="stylesheet" href="../css/duongtrachtamyeu.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="layout">
+
+    <!-- ================= CỘT TRÁI ================= -->
+    <div class="sidebar">
+      <div class="sb-title"><b>Hướng dẫn chọn</b></div>
+
+      <table class="sb-table">
+        <tr><th>Sơn</th><th>Cung</th></tr>
+        <tr><td>Nhâm</td><td>KHẢM</td></tr>
+        <tr><td>Tý</td><td></td></tr>
+        <tr><td>Quý</td><td></td></tr>
+
+        <tr><td>Sửu</td><td>CẤN</td></tr>
+        <tr><td>Cấn</td><td></td></tr>
+        <tr><td>Dần</td><td></td></tr>
+
+        <tr><td>Giáp</td><td>CHẤN</td></tr>
+        <tr><td>Mão</td><td></td></tr>
+        <tr><td>Ất</td><td></td></tr>
+
+        <tr><td>Thìn</td><td>TỐN</td></tr>
+        <tr><td>Tốn</td><td></td></tr>
+        <tr><td>Tỵ</td><td></td></tr>
+
+        <tr><td>Bính</td><td>LY</td></tr>
+        <tr><td>Ngọ</td><td></td></tr>
+        <tr><td>Đinh</td><td></td></tr>
+
+        <tr><td>Mùi</td><td>KHÔN</td></tr>
+        <tr><td>Khôn</td><td></td></tr>
+        <tr><td>Thân</td><td></td></tr>
+
+        <tr><td>Canh</td><td>ĐOÀI</td></tr>
+        <tr><td>Dậu</td><td></td></tr>
+        <tr><td>Tân</td><td></td></tr>
+      </table>
+    </div>
+
+    <!-- ================= CỘT PHẢI ================= -->
+    <div class="main">
+
+      <!-- HEADER -->
+      <div class="header">
+        <a href="../index.html" class="back">&lt;= home</a>
+        <h1>DƯƠNG TRẠCH TAM YẾU</h1>
+        <div class="subtitle">64 cách cục Nhà – Bếp</div>
+      </div>
+
+      <!-- INPUT -->
+      <div class="input-box">
+        <div class="row">
+          <label>Cửa chính :</label>
+          <select id="cua">
+            <option value="">-- chọn --</option>
+            <option value="can">Càn</option>
+            <option value="kham">Khảm</option>
+            <option value="cans">Cấn</option>
+            <option value="chan">Chấn</option>
+            <option value="ton">Tốn</option>
+            <option value="ly">Ly</option>
+            <option value="khon">Khôn</option>
+            <option value="doai">Đoài</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>Tọa sơn :</label>
+          <select id="toa">
+            <option value="">-- chọn --</option>
+            <option value="can">Càn</option>
+            <option value="kham">Khảm</option>
+            <option value="cans">Cấn</option>
+            <option value="chan">Chấn</option>
+            <option value="ton">Tốn</option>
+            <option value="ly">Ly</option>
+            <option value="khon">Khôn</option>
+            <option value="doai">Đoài</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>Tọa bếp :</label>
+          <select id="bep">
+            <option value="">-- chọn --</option>
+            <option value="can">Càn</option>
+            <option value="kham">Khảm</option>
+            <option value="cans">Cấn</option>
+            <option value="chan">Chấn</option>
+            <option value="ton">Tốn</option>
+            <option value="ly">Ly</option>
+            <option value="khon">Khôn</option>
+            <option value="doai">Đoài</option>
+          </select>
+        </div>
+
+        <button id="btnXem"> xem </button>
+      </div>
+
+      <!-- RESULT -->
+      <div class="result">
+
+        <h2>Cách cục tổng thể :</h2>
+        <div class="tongthe ">
+	<span id="cucnha"></span> +  <span id="chinhbep"></span> + <span id="toanhabep"></span>
+        </div>
+
+        <hr>
+
+        <div class="block">
+          <h3>1. Cách cục nhà (Cửa chính – Tọa sơn)</h3>
+          <p><b>Cách cục:</b> <span id="cucnha_text"></span></p>
+          <p><b>Kiểu nhà:</b> <span id="kieunha"></span></p>
+          <p><b>Diễn giải:</b> <div id="diengiai"></div>
+        </div>
+
+        <div class="block">
+          <h3>2. Cách cục Cửa chính – Bếp</h3>
+          <p><b>Cách cục:</b> <span id="chinhbep_text"></span></p>
+          <p><b>Diễn giải:</b><div id="chugiai"></div>
+        </div>
+
+        <div class="block">
+          <h3>3. Cách cục Tọa sơn – Bếp</h3>
+          <p><b>Cách cục:</b> <span id="toanhabep_text"></span></p>
+                  </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="module" src="../js/duongtrachtamyeu.js"></script>
+</body>
+</html>

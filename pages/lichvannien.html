@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lịch Vạn Niên</title>
+
+<link rel="stylesheet" href="../css/lichvannien.css">
+</head>
+<body>
+
+<!-- ===== NÚT VỀ TRANG CHÍNH ===== -->
+<div class="lvn-container">
+ <div class="lvn-header">
+   <div class="lvn-home">
+        <a href="../index.html">← Home</a> 
+    <h1>LỊCH VẠN NIÊN</h1>
+    
+    </div>
+</div>
+
+
+
+  <div class="lvn-row">
+      <div class="col">
+          <label>Ngày dương:</label>
+          <input type="date" id="inputDate">
+      </div>
+      <div class="col">
+          <label>Giờ dương:</label>
+          <input type="number" id="inputHour" min="0" max="23" value="0">
+      </div>
+      <div class="col">
+          <label>Ngày âm:</label>
+          <div><span id="ngayam">--</span></div>
+          <div class="am-box">
+            <span id="am-date">--</span> / 
+            <span id="am-month">--</span> / 
+            <span id="am-year">--</span>
+          </div>
+      </div>
+  </div>
+
+  <div class="lvn-row">
+      <button id="btnXem" class="btn-xem">Xem</button>
+  </div>
+
+  <hr>
+
+  <!-- ==== CAN CHI ==== -->
+  <h2>TỨ TRỤ</h2>
+  <table class="tbl">
+      <tr><th></th><th>Năm</th><th>Tháng</th><th>Ngày</th><th>Giờ</th></tr>
+      <tr>
+          <td><b>Can Chi<b></td>
+          <td><span id="canamnam"></span> <span id="chinamnam"></span></td>
+          <td><span id="canamthang"></span> <span id="chiamthang"></span></td>
+          <td><span id="canamngay"></span> <span id="chiamngay"></span></td>
+          <td><span id="canamgio"></span> <span id="chiamgio"></span></td>
+      </tr>
+      <tr>
+          <td><b>Nạp âm<b></td>
+          <td id="napamnam"></td>
+          <td id="napamthang"></td>
+          <td id="napamngay"></td>
+          <td id="napamgio"></td>
+      </tr>
+  </table>
+
+  <!-- Tiết khí – Trực -->
+  <h2>Tiết khí – Trực</h2>
+  <table class="tbl">
+      <tr><td><b>Tiết khí<b></td><td id="tiet"></td></tr>
+      <tr><td><b>Trực<b></td><td id="truc"></td></tr>
+      <tr><td><b>Nên<b></td><td id="truc_nen"></td></tr>
+      <tr><td><b>Không nên<b></td><td id="truc_khongnen"></td></tr>
+  </table>
+
+  <!-- Nhị Thập Bát Tú -->
+  <h2>Nhị Thập Bát Tú</h2>
+  <table class="tbl">
+      <tr><td><b>Tên sao<b></td><td id="sao_ten"></td></tr>
+      <tr><td><b>Ngũ hành<b></td><td id="sao_nguhanh"></td></tr>
+      <tr><td><b>Cát / Hung<b></td><td id="sao_cathung"></td></tr>
+      <tr><td><b>Nên<b></td><td id="sao_nen"></td></tr>
+      <tr><td><b>Không nên<b></td><td id="sao_khongnen"></td></tr>
+      <tr><td><b>Ngoại lệ<b></td><td id="sao_ngoaile"></td></tr>
+  </table>
+
+  
+
+  <!-- Giờ Hoàng Đạo – Hắc Đạo -->
+  <h2>Giờ Hoàng Đạo – Hắc Đạo</h2>
+  <table class="tbl two-col">
+      <tr><th>Hoàng đạo</th><th>Hắc đạo</th></tr>
+      <tbody id="gio_list"></tbody>
+  </table>
+
+  
+  
+
+
+<table class="tbl two-col">
+  <tr><th>Kiết Tinh</th><th>Ý nghĩa</th></tr>
+  <tbody id="saotot_chitiet"></tbody>
+</table>
+
+
+<table class="tbl two-col">
+  <tr><th>Hung Tinh</th><th>Ý Nghĩa</th></tr>
+  <tbody id="saoxau_chitiet"></tbody>
+</table>
+
+  <!-- Bách Thần -->
+  <h2>Bách Thần</h2>
+  <table class="tbl">
+      <tr><td>Nội dung</td><td id="bachthan_noingu"></td></tr>
+      <tr><td>Động thổ</td><td id="bachthan_dongtho"></td></tr>
+      <tr><td>Ý nghĩa</td><td id="bachthan_ynghia"></td></tr>
+  </table>
+
+  <!-- Đổng Công -->
+  <h2>Đổng Công</h2>
+  <div id="dongcong_noidung"></div>
+
+  <!-- Giờ Thái Ất -->
+  <h2>Giờ Thái Ất</h2>
+  <table class="tbl">
+      <tr><td><b>Can ngày<b></td><td id="thaivat_can"></td></tr>
+      <tr><td><b>Giờ Thái Ất</b></td><td id="giothaiat"></td></tr>
+  </table>
+
+</div>
+
+<!-- JS xử lý lịch âm dương -->
+<script src="../js/core/doiamduong.js"></script>
+<script src="../js/thangam.js"></script>
+
+<!-- JS chính của trang Lịch Vạn Niên -->
+
+<script type="module" src="../js/lichvannien.js"></script>
+
+
+</body>
+</html>

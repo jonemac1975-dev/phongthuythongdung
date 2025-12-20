@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Ngũ hành khuyết</title>
+  <link rel="stylesheet" href="../css/nguhanhkhuyet.css">
+</head>
+<body>
+
+
+
+<div class="container">
+<div class="topbar">
+  <a href="../index.html" class="home">← Home</a>
+</div>
+<h1>THÔNG TIN BẢN MỆNH</h1>
+  
+
+  <!-- INPUT -->
+  <section class="block">
+    <div class="nhk-input">
+      <label>
+        Ngày dương lịch:
+        <input type="date" id="solarDate">
+      </label>
+
+      <label>
+        Giờ:
+        <input type="number" id="solarHour" min="0" max="23" value="0">
+      </label>
+
+      <label>
+        Giới tính:
+        <select id="gioitinh">
+          <option value="nam">Nam</option>
+          <option value="nu">Nữ</option>
+        </select>
+      </label>
+
+      <button id="btnXem">Xem</button>
+    </div>
+  </section>
+
+  <!-- TỨ TRỤ -->
+  <section class="block">
+    <h2>TỨ TRỤ</h2>
+    <table>
+      <tr>
+        <th></th><th>Năm</th><th>Tháng</th><th>Ngày</th><th>Giờ</th>
+      </tr>
+      <tr>
+        <td>Can chi</td>
+        <td id="canchinam"></td>
+        <td id="canchithang"></td>
+        <td id="canchingay"></td>
+        <td id="canchigio"></td>
+      </tr>
+      <tr>
+        <td>Nạp âm</td>
+        <td id="napamnam"></td>
+        <td id="napamthang"></td>
+        <td id="napamngay"></td>
+        <td id="napamgio"></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- MỆNH QUÁI -->
+  <section class="block">
+    <h2>MỆNH QUÁI</h2>
+    <table>
+      <tr><th>Mệnh</th><th>Ngũ hành</th><th>Phương</th><th>Số</th></tr>
+      <tr>
+        <td id="menh"></td>
+        <td id="nguhanh"></td>
+        <td id="phuong"></td>
+        <td id="so"></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- BÁT TRẠCH -->
+  <section class="block">
+    <h2>BÁT TRẠCH</h2>
+    <table>
+      <tr>
+        <th>CÀN (Tây Bắc)</th><th>KHẢM (Bắc)</th><th>CẤN (Đông Bắc)</th><th>CHẤN (Đông)</th>
+        <th>TỐN (Đông Nam)</th><th>LY (Nam)</th><th>KHÔN (Tây Nam)</th><th>ĐOÀI (Tây)</th>
+      </tr>
+      <tr>
+        <td id="taybac"></td>
+        <td id="bac"></td>
+        <td id="dongbac"></td>
+        <td id="dong"></td>
+        <td id="dongnam"></td>
+        <td id="nam"></td>
+        <td id="taynam"></td>
+        <td id="tay"></td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- LỘC MÃ -->
+  <section class="block">
+    <h2>LỘC - MÃ - QUÝ NHÂN - VĂN XƯƠNG - ĐÀO HOA</h2>
+    <table>
+      <tr><th></th><th>Theo năm</th><th>Theo ngày</th></tr>
+      <tr><td>Mệnh Lộc</td><td id="locnam"></td><td id="locngay"></td></tr>
+      <tr><td>Mệnh Mã</td><td id="manam"></td><td id="mangay"></td></tr>
+      <tr><td>Quý âm</td><td id="quyamnam"></td><td id="quyamngay"></td></tr>
+      <tr><td>Quý dương</td><td id="quyduongnam"></td><td id="quyduongngay"></td></tr>
+      <tr><td>Văn xương</td><td id="vanxuongnam"></td><td id="vanxuongngay"></td></tr>
+      <tr><td>Đào hoa</td><td id="daohoanam"></td><td id="daohoangay"></td></tr>
+    </table>
+  </section>
+<!-- NGŨ HÀNH KHUYẾT -->
+<section class="block">
+  <h2>NGŨ HÀNH KHUYẾT</h2>
+ 
+<!-- ================== BIỂU ĐỒ NGŨ HÀNH ================== -->
+<div class="nguhanh-chart">
+  <div class="bar-container">
+    <div class="bar" id="barKim"></div>
+    <span class="percent" id="percentKim"></span>
+    <span class="label">Kim</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" id="barThuy"></div>
+    <span class="percent" id="percentThuy"></span>
+    <span class="label">Thủy</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" id="barMoc"></div>
+    <span class="percent" id="percentMoc"></span>
+    <span class="label">Mộc</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" id="barHoa"></div>
+    <span class="percent" id="percentHoa"></span>
+    <span class="label">Hỏa</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" id="barTho"></div>
+    <span class="percent" id="percentTho"></span>
+    <span class="label">Thổ</span>
+  </div>
+</div>
+
+
+
+</section>
+
+</div>
+
+
+<script src="../js/core/doiamduong.js"></script>
+<script src="../js/thangam.js"></script>
+<script type="module" src="../js/nguhanhkhuyet.js"></script>
+
+
+</body>
+</html>
