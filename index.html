@@ -6,6 +6,8 @@
 
     <!-- CSS chính -->
     <link rel="stylesheet" href="css/index.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.156.0/build/three.min.js"></script>
+
 </head>
 <body>
 <div id="layout">
@@ -48,11 +50,8 @@
     <!-- ===== CỘT PHẢI: VÙNG CONTENT ===== -->
     <main id="content">
         <h2><b>PHONG THỦY THÔNG DỤNG</h2>
-<div id="globe-simple">
-    <video autoplay muted loop playsinline>
-      <source src="assets/video/earth.mp4" type="video/mp4">
-    </video>
-  </div>
+    <div id="globe-3d" style="width:520px; height:520px; margin: 30px auto;"></div>
+
     </main>
 
 </div>
@@ -61,6 +60,65 @@
 <script src="js/index.js"></script>
 
 <a href="admin.html" id="admin-lock" title="Trang quản trị">🔒</a>
+<script>
+  // === Basic setup ===
+  const globeDiv = document.getElementById('globe-3d');
+  const width = globeDiv.clientWidth;
+  const height = globeDiv.clientHeight;
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+  camera.position.z = 2.5;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(width, height);
+  globeDiv.appendChild(renderer.domElement);
+
+  // === Light ===
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+  directionalLight.position.set(5, 3, 5);
+  scene.add(directionalLight);
+
+  // === Globe ===
+  const textureLoader = new THREE.TextureLoader();
+  const earthTexture = textureLoader.load('assets/img/earth.png'); // bản đồ thế giới
+  const earthBump = textureLoader.load('assets/img/earth-bump.png');   // optional, tạo độ nổi
+  const earthSpec = textureLoader.load('assets/img/earth-specular.png'); // optional, ánh sáng phản chiếu
+
+  const globeGeometry = new THREE.SphereGeometry(1, 64, 64);
+  const globeMaterial = new THREE.MeshPhongMaterial({
+    map: earthTexture,
+    bumpMap: earthBump,
+    bumpScale: 0.03,
+    specularMap: earthSpec,
+    specular: new THREE.Color('grey')
+  });
+
+  const globeMesh = new THREE.Mesh(globeGeometry, globeMaterial);
+  scene.add(globeMesh);
+
+  // === Animation ===
+  function animate() {
+    requestAnimationFrame(animate);
+    globeMesh.rotation.y += 0.0015; // quay ngang (trái → phải)
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // === Responsive ===
+  window.addEventListener('resize', () => {
+    const w = globeDiv.clientWidth;
+    const h = globeDiv.clientHeight;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  });
+</script>
 
 </body>
 </html>
