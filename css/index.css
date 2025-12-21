@@ -18,7 +18,7 @@ body {
 
 /* ===== MENU BÊN TRÁI ===== */
 #menu {
-    width: 25%;              /* > 15% theo yêu cầu */
+    width: 28%;              /* > 15% theo yêu cầu */
     min-width: 260px;        /* không quá hẹp */
     max-width: 320px;        /* không quá to */
     background: #2c3e50;
