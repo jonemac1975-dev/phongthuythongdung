@@ -1,3 +1,6 @@
+/* =====================================================
+   BASE
+   ===================================================== */
 body {
     font-family: Roboto, Arial, sans-serif;
     background: #fffaf5;
@@ -51,6 +54,9 @@ button {
     cursor: pointer;
 }
 
+/* =====================================================
+   TABLE CHUNG
+   ===================================================== */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -67,15 +73,15 @@ th {
     background: #f0f0f0;
 }
 
-/* ===== TIÊU ĐỀ ===== */
+/* =====================================================
+   TIÊU ĐỀ
+   ===================================================== */
 h1 {
-    text-align: center;        /* căn giữa */
-    margin: 12px 0 16px;       /* thoáng hơn */
-    color: #8b0000;
+    text-align: center;
+    margin: 12px 0 16px;
     font-weight: 700;
 }
 
-/* nhấn riêng tiêu đề trong block */
 .block > h1,
 .block > h2,
 .block > h3 {
@@ -83,389 +89,300 @@ h1 {
     padding-bottom: 6px;
 }
 
-
-
-/* ===== DƯƠNG TRẠCH 50% bề ngang, nằm bên trái ===== */
+/* =====================================================
+   DƯƠNG TRẠCH
+   ===================================================== */
 .block.duongtrach {
     width: 100%;
-    margin: 0 auto;  --> bỏ đi để không canh giữa */
 }
 
 .block.duongtrach table {
-    width: 100%;             /* table co theo div cha */
-    table-layout: fixed;     /* giữ ô cố định, không bung */
-    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .block.duongtrach th,
 .block.duongtrach td {
-    font-size: 14px;         /* chữ dễ đọc */
+    font-size: 14px;
     padding: 4px 6px;
-    text-align: center;
 }
 
+/* =========================
+   VẬN BÀN – FINAL FIX
+========================= */
 
-
-/* ===== VẬN BÀN (thu nhỏ 50%) ===== */
-.vanban {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr); /* 9 cột */
-    gap: 2px;
-    margin-top: 10px;
-    width: 50%;          /* thu hẹp grid 50% */
-    margin-left: auto;
-    margin-right: auto;   /* canh giữa */
-    font-size: 0;         /* reset để padding nội bộ không bung */
-}
-
-.vbcell {
-    border: 1px solid #666;
-    min-height: 24px;    /* giảm 50% */
-    font-size: 0;         /* reset font-size container */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2px;
-}
-
-.vbcell strong {
-    font-size: 20px;      /* phóng to chữ số, vẫn vừa ô */
-    line-height: 1;
-}
-
-/* ===== WRAPPER CHÍNH ===== */
 .vanban-wrapper {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: auto 1fr auto; /* ⚠️ auto → 1fr */
-  align-items: stretch;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  gap: 6px;
 }
 
-
-/* ===== HEADER / FOOTER ===== */
+/* HEADER + FOOTER */
 .vanban-header,
 .vanban-footer {
-  grid-column: 2;
-  width: 50%;                 /* PHẢI TRÙNG với .vanban */
-  margin: 0 auto;
+  width: 45%;
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
   font-weight: bold;
-  color: #8B0000;
+  color: #8b0000;
 }
 
-/* canh đúng 3 vùng */
-.vanban-header .ton  { grid-column: 1 / span 3; }
-.vanban-header .ly   { grid-column: 4 / span 3; }
-.vanban-header .khon { grid-column: 7 / span 3; }
-
-.vanban-footer .can   { grid-column: 1 / span 3; }
-.vanban-footer .kham  { grid-column: 4 / span 3; }
-.vanban-footer .can2  { grid-column: 7 / span 3; }
-
-.vanban-footer .can,
-.vanban-footer .kham,
-.vanban-footer .can2 {
-  transform: translateX(15%);
+/* MIDDLE */
+.vanban-middle {
+  width: 45%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
 }
 
-
-/* ===== TRÁI / PHẢI ===== */
-.middle-left  { grid-column: 1; grid-row: 2; font-weight: bold; }
-.middle-right { grid-column: 3; grid-row: 2; font-weight: bold; }
-
-/* ===== GRID Ô GIỮA (GIỮ ĐÚNG BẢN 50%) ===== */
+/* TRUNG TÂM 9x6 */
 .vanban {
-  grid-column: 2;
-  grid-row: 2;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 2px;
-  width: 40%;
-  margin: 0 auto;
 }
 
+/* Ô */
 .vbcell {
   border: 1px solid #666;
-  min-height: 35px;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 23px;
 }
 
-
-
-
-/* ===== CHẤN / ĐOÀI ===== */
+/* CHẤN – ĐOÀI */
 .middle-left,
 .middle-right {
-  grid-row: 2;
-  display: flex;
-  align-items: center;     /* CANH GIỮA THEO CHIỀU CAO BẢNG */
   font-weight: bold;
-  height: 100%;
+  white-space: nowrap;
 }
 
-/* trái */
-.middle-left {
-  grid-column: 1;
-  justify-content: flex-end;
-  padding-right: 10px;
-}
 
-.middle-left {
-  grid-column: 1;
-  grid-row: 2;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+/* ===== MÀU CHỮ THEO BÁT QUÁI ===== */
+
+/* CÀN – ĐOÀI : màu ghi */
+.cung-can,
+.cung-doai {
+  color: #666;        /* ghi */
   font-weight: bold;
-transform: translateX(650%); /* 👉 ĐẨY SANG PHẢI 1/3 */
- 
 }
 
-/* phải */
-.middle-right {
-  grid-column: 3;
-  grid-row: 2;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+/* LY : đỏ */
+.cung-ly {
+  color: #c00000;
   font-weight: bold;
-transform: translate( 73%, -700%); /* 👈 kéo TRÁI + KÉO LÊN */
-
 }
+
+/* KHẢM : đen */
+.cung-kham {
+  color: #000;
+  font-weight: bold;
+}
+
+/* KHÔN – CẤN : vàng đất */
+.cung-khon,
+.cung-can2 {
+  color: #b8860b;     /* vàng đất */
+  font-weight: bold;
+}
+
+/* CHẤN – TỐN : xanh lá */
+.cung-chan,
+.cung-ton {
+  color: #2e8b57;     /* xanh lá */
+  font-weight: bold;
+}
+
+/* =====================================================
+   THẦN SÁT – FIX PC + MOBILE
+   ===================================================== */
+
+/* WRAPPER */
+.thansat-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* GRID */
+.thansat-grid {
+  display: grid;
+  grid-template-columns: 140px minmax(260px, 1fr) minmax(260px, 1fr);
+  min-width: 700px;              /* 🔥 PC không bị bó */
+  border: 1px solid #aaa;
+}
+
+/* CELL */
+.thansat-grid > div {
+  border: 1px solid #aaa;
+  padding: 6px 8px;
+  font-size: 14px;
+  white-space: nowrap;           /* không rớt dòng */
+}
+
+/* HEADER */
+.ts-head {
+  font-weight: bold;
+  background: #eef3ff;           /* nền nhạt */
+  text-align: center;
+}
+
+/* CUNG (KHẢM – CẤN – …) */
+.ts-cung {
+  grid-column: 1 / span 3;
+  background: #f7f7f7;           /* nền nhạt */
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+
+
+
 
 
 /* =====================================================
-   6. THẦN SÁT – GRID 3 CỘT (ỔN ĐỊNH PC + MOBILE)
-   Gọn – sạch – dễ bảo trì
+   MOBILE – FULL FIX (COPY DÁN)
    ===================================================== */
-
-/* wrapper cho phép cuộn ngang */
-.thansat-grid-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* grid chính */
-.thansat-grid {
-    display: grid;
-    grid-template-columns: 120px 1fr 1fr; /* 24 Sơn | Cát | Hung */
-    min-width: 520px;
-    border: 1px solid #aaa;
-    background: #fff;
-}
-
-/* ô chung */
-.thansat-grid > div {
-    border: 1px solid #aaa;
-    padding: 6px 8px;
-    font-size: 14px;
-    line-height: 1.4;
-
-    /* canh trái toàn bộ */
-    text-align: left;
-    white-space: normal;
-    word-break: break-word;
-}
-
-/* ===== TIÊU ĐỀ CỘT ===== */
-.thansat-colhead {
-    font-weight: 700;
-    background: #f0f0f0;
-}
-
-/* ===== DÒNG CUNG (SPAN 3 CỘT) ===== */
-.thansat-cung {
-    grid-column: 1 / span 3;
-    font-weight: 700;
-    background: #fafafa;
-    padding-left: 10px;
-}
-
-/* ===== CỘT 24 SƠN (DỮ LIỆU) ===== */
-/* mỗi hàng = 3 ô → ô thứ 1 là 24 sơn */
-.thansat-grid > div:nth-child(3n + 1):not(.thansat-colhead):not(.thansat-cung) {
-    font-weight: 700;
-}
-
-/* ===== MÀU NỘI DUNG ===== */
-.thansat-cat {
-    color: #0a6d2f;
-}
-
-.thansat-hung {
-    color: #8b0000;
-}
-
-/* ===== THẦN SÁT - NỀN PHÂN BIỆT ===== */
-.thansat-grid > div.thansat-colhead {
-    background-color: #f0f8ff; /* nền xanh nhạt cho cột tiêu đề */
-    font-weight: bold;
-}
-
-.thansat-grid > div.thansat-cat {
-    background-color: #d0f0c0; /* màu xanh nhạt cho cột CÁT */
-    color: #006400;
-    font-weight: bold;
-}
-
-.thansat-grid > div.thansat-hung {
-    background-color: #fdd;    /* màu đỏ nhạt cho cột HUNG */
-    color: #8b0000;
-    font-weight: bold;
-}
-
-.thansat-grid > div.thansat-cung {
-    background-color: #f5f5f5;  /* màu xám nhạt cho dòng CUNG KHẢM, CẤN,... */
-    font-weight: bold;
-    padding-left: 8px;
-}
-
-
-/* ================= MOBILE FIX FINAL ================= */
-@media (max-width:768px){
-
-  /* ===== BLOCK & TABLE FULL WIDTH (không phá cột) ===== */
-  .block {
-    width: 100% !important;
-    overflow-x: auto;
-  }
-
-  .block table {
-    width: 100% !important;
-    table-layout: auto !important; /* giữ table layout tự nhiên */
-  }
-
-  .block table th,
-  .block table td {
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  /* ===== LONG VẬN & NGŨ HÀNH HỒNG PHẠM ===== */
-  .block table th,
-  .block table td {
-    font-size: 12px;
-    padding: 4px 6px;
-  }
-
-  /* ===== VAN BÀN (50% → full width) ===== */
-  .vanban-wrapper {
-    width: 95% !important;
-    margin: 0 auto;
-    overflow-x: auto;
-    position: relative;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .vanban {
-    width: max-content !important; /* giữ grid, không bó 50% */
-    min-width: 360px; /* đảm bảo ô không quá nhỏ */
-    margin: 0 auto;
-  }
-
-  .vanban-header,
-  .vanban-footer {
-    width: 100% !important;
-    grid-template-columns: repeat(9, 1fr) !important;
-    text-align: center;
-    justify-items: center;
-    font-weight: bold;
-    color: #8B0000;
-  }
-
-  /* ===== CHẤN / ĐOÀI RESET ===== */
-  @media (max-width:768px){
-
-  .middle-left,  /* Chấn */
-  .middle-right{ /* Đoài */
-    position: absolute !important;
-    transform: none !important;
-    font-size: 12px;
-    font-weight: bold;
-    z-index: 9999;
-    background: #fffaf5;
-    padding: 2px 4px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
-
- 
-
-  /* ===== VAN BÀN SCROLL nếu cần ===== */
-  .vanban-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* ===== THẦN SÁT GRID ===== */
-  .thansat-grid {
-    grid-template-columns: 120px 1fr 1fr !important;
-    min-width: 300px !important;
-    font-size: 12px;
-  }
-
-  /* ===== CANH CHỮ ===== */
-  .block h1, .block h2, .block h3 {
-    font-size: 16px;
-    text-align: left;
-  }
-}
-
-/* ===== MOBILE SCROLLABLE BLOCKS ===== */
 @media (max-width: 768px) {
 
-  /* tất cả block bảng dài */
-  .block table,
-  .block.duongtrach table,
-  .block.vanban,
-  .block thansat-grid {
-      width: auto !important;      /* không bó 50% / 100% */
-      min-width: 700px;            /* đảm bảo không quá hẹp */
+  /* ===== BASE ===== */
+  body {
+    font-size: 14px;
   }
 
-  /* wrapper cho scroll ngang */
-  .block-scroll {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch; /* mượt trên iOS */
-      width: 100%;
+  .page {
+    padding: 10px;
   }
 
-  /* grid vận bàn */
-  .vanban-wrapper {
-      width: auto !important;
-      overflow-x: auto !important;
-      padding-left: 12px;
-      padding-right: 12px;
+  .block {
+    padding: 10px;
+    overflow-x: visible;
   }
 
-  .vanban {
-      width: auto !important;       /* không bó 50% */
-      min-width: 240px;
-      margin-left: 0 !important;   /* bỏ căn giữa cứng */
-      margin-right: 0 !important;
+  /* =====================================================
+     1. TỨ TRỤ – ÉP LẠI GỌN
+     ===================================================== */
+  .block.tutru table {
+    width: 100%;
+    table-layout: fixed;
+    min-width: unset;
   }
 
-  /* Chấn / Đoài trên vận bàn */
-  .middle-left { top: -290px; left: -46px; }
-  .middle-right { top: 730px; right: -76px; }
-}
+  .block.tutru th,
+  .block.tutru td {
+    font-size: 12px;
+    padding: 4px 2px;
+    white-space: normal;
+    word-break: break-word;
+  }
 
-@media (max-width: 768px){
-  .block-scroll {
+  /* =====================================================
+     2. DƯƠNG TRẠCH – SCROLL
+     ===================================================== */
+  .block.duongtrach {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .block.duongtrach table {
+    min-width: 520px;
+    font-size: 12px;
+  }
+
+  /* =====================================================
+     3. CÁCH CỤC – SCROLL
+     ===================================================== */
+  .block.cachcuc {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .block.cachcuc table {
+    min-width: 520px;
+    font-size: 12px;
+  }
+
+  /* =====================================================
+     4. LONG VẬN – GIÃN CỘT 1–2–3
+     ===================================================== */
+  .block.longvan {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .block.longvan table {
+    min-width: 620px;
+  }
+
+  .block.longvan th:nth-child(1),
+  .block.longvan td:nth-child(1) {
+    min-width: 60px;
+  }
+
+  .block.longvan th:nth-child(2),
+  .block.longvan td:nth-child(2),
+  .block.longvan th:nth-child(3),
+  .block.longvan td:nth-child(3) {
+    min-width: 40px;
+  }
+
+  /* =====================================================
+   5. NGŨ HÀNH HỒNG PHẠM – MOBILE SCROLL (KHÔNG CO CỘT)
+   ===================================================== */
+@media (max-width: 768px) {
+
+  .block.nguhanh {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .block.nguhanh table {
+    width: max-content;     /* 🔥 không ép co bảng */
+    min-width: 520px;       /* chỉnh 560–600 nếu bảng rộng hơn */
+    table-layout: auto;     /* 🔥 không fixed */
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .block.nguhanh th,
+  .block.nguhanh td {
+    white-space: nowrap;    /* 🔥 CHỐT: không rớt dòng */
+    padding: 4px 6px;
+    text-align: center;
+  }
+}
+
+
+  /* =====================================================
+     6. THẦN SÁT – SCROLL + NỀN NHẠT
+     ===================================================== */
+  /* MOBILE */
+@media (max-width: 768px) {
+  .thansat-grid {
+    font-size: 12px;
+  }
+}
+  /* =====================================================
+     7. VẬN BÀN – GỌN & LỌT KHUNG
+     ===================================================== */
+  .vanban-header,
+  .vanban-footer,
+  .vanban-middle {
     width: 100%;
   }
 
-  .block-scroll table {
-    width: auto !important; /* Không bó cứng */
-    min-width: 500px;       /* đủ rộng để hiển thị nội dung */
+  .vanban {
+    gap: 1px;
+    transform: scale(0.9);
+    transform-origin: center;
   }
+
+  .vbcell {
+    font-size: 12px;
+  }
+
 }
