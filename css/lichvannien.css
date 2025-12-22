@@ -1,3 +1,10 @@
+
+:root {
+    --text-red-dark: #8b0000; /* đỏ đậm, không chói */
+}
+
+
+
 /* ===== RESET ===== */
 * {
     margin: 0;
@@ -5,92 +12,91 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background: #f2f5f9;
+/* ===== MÀU CHỦ ĐẠO (GIỐNG HEADER) ===== */
+:root {
+    --bg-page: #f2f5f9;
+    --bg-box: #ffffff;
+    --bg-soft: #f6f8fa;
+    --border-main: #d0d7de;
+    --border-soft: #e5e7eb;
+    --text-main: #222;
+    --text-soft: #555;
+    --blue-main: #0077cc;
 }
 
+/* ===== BODY ===== */
+html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+}
+
+/* ===== HEADER ===== */
 .lvn-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;          /* padding ngang */
+    padding: 0 20px;
     height: 70px;
     background: #eef2f5;
-    border-bottom: 1px solid #d0d7de;
-    position: fixed;           /* sát top */
+    border-bottom: 1px solid var(--border-main);
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
 }
 
+.lvn-header .logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--border-main);
+}
 
+.lvn-header .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-/* ===== TIÊU ĐỀ ===== */
 .lvn-header h1 {
-    font-size: 24px;
-    margin-left: 50px;        /* khoảng cách ra khỏi logo */
-    line-height: 40px;         /* căn giữa theo chiều cao header */
     flex: 1;
+    margin-left: 16px;
+    font-size: 24px;
+    color: #333;
+    line-height: 70px;
 }
 
-
-* ===== NÚT HOME ===== */
-.lvn-home {
-    font-weight: bold;
-}
 .lvn-home a {
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
     text-decoration: none;
-    color: #0077cc;
+    color: var(--blue-main);
 }
+
 .lvn-home a:hover {
     color: #005fa3;
 }
 
+/* ===== CONTAINER ===== */
 .lvn-container {
     max-width: 1100px;
-    background: #fff;
     margin: 0 auto;
-    padding: 15px 20px 20px;   /* padding-bottom ok */
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: var(--bg-box);
+    padding: 18px 20px 30px;
     border-radius: 14px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    height: calc(100vh - 70px); /* trừ header */
-    overflow-y: auto;
-    margin-top: 70px;          /* tạo khoảng cách đủ để không bị header che */
 }
 
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-    .lvn-header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        height: 60px;
-        padding: 0 10px;
-    }
-    .lvn-header .logo {
-        width: 50px;
-        height: 50px;
-    }
-    .lvn-header h1 {
-        font-size: 20px;
-        line-height: 50px;
-        margin-left: 10px;
-    }
-    .lvn-container {
-        height: calc(100vh - 60px);
-        margin-top: 60px;
-    }
-}
-
-/* ===== FORM DÒNG ===== */
+/* ===== FORM ===== */
 .lvn-row {
     display: flex;
     gap: 25px;
@@ -105,22 +111,23 @@ html, body {
 
 label {
     font-weight: bold;
+    color: #333;
 }
 
 input {
     width: 100%;
     margin-top: 6px;
-    padding: 8px;
+    padding: 8px 10px;
     border-radius: 6px;
-    border: 1px solid #bbb;
+    border: 1px solid var(--border-main);
     font-size: 15px;
 }
 
-/* ===== NÚT XEM ===== */
+/* ===== BUTTON ===== */
 .btn-xem {
-    background: #0077cc;
+    background: var(--blue-main);
     color: #fff;
-    padding: 10px 25px;
+    padding: 10px 26px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -134,37 +141,41 @@ input {
 
 /* ===== TIÊU ĐỀ MỤC ===== */
 h2 {
-    margin: 22px 0 10px;
-    color: #333;
-    border-left: 6px solid #0077cc;
-    padding-left: 10px;
+    margin: 26px 0 12px;
+    padding: 8px 0;
     font-size: 22px;
+    color: #333;
+    border-bottom: 2px solid var(--border-main);
 }
 
-/* ===== BẢNG ===== */
+/* ===== TABLE ===== */
 .tbl {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-    background: #fafafa;
+    margin-bottom: 24px;
+    background: var(--bg-soft);
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-main);
 }
 
 .tbl th, .tbl td {
     padding: 10px 12px;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid var(--border-soft);
+    text-align: left;
+    vertical-align: top;
 }
 
 .tbl th {
-    background: #0077cc;
-    color: #fff;
-    text-align: left;
+    background: #e9eef2;
+    color: #222;
+    font-weight: bold;
 }
 
-.tbl tr:nth-child(odd) td {
-    background: #fdfdfd;
+.tbl td:first-child {
+    width: 140px;
+    font-weight: bold;
+    color: #333;
 }
 
 .tbl tr:last-child td {
@@ -172,13 +183,9 @@ h2 {
 }
 
 /* 2 cột */
-.tbl.two-col td, .tbl.two-col th {
+.tbl.two-col th,
+.tbl.two-col td {
     width: 50%;
-}
-
-/* 3 cột */
-.tbl.three-col td, .tbl.three-col th {
-    width: 33%;
 }
 
 /* ===== AM BOX ===== */
@@ -187,44 +194,89 @@ h2 {
     border: 1px solid #aacdf0;
     padding: 8px;
     border-radius: 6px;
-    margin-top: 5px;
+    margin-top: 6px;
     display: inline-block;
+    font-weight: bold;
 }
 
-/* ===== PHẦN ĐỔNG CÔNG ===== */
+/* ===== ĐỔNG CÔNG ===== */
 #dongcong_noidung {
     background: #fff7e6;
     border: 1px solid #ffd591;
     padding: 12px;
     border-radius: 8px;
+    line-height: 1.6;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-    .lvn-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 10px;
-        text-align: left;
-    }
 
-    .lvn-header .logo {
-        width: 50px;
-        height: 50px;
+    .lvn-header {
+        height: 60px;
+        padding: 0 10px;
     }
 
     .lvn-header h1 {
-        font-size: 20px;
-        line-height: 50px;
-        margin-left: 10px;
-    }
-
-    .lvn-home {
-        margin-left: auto;
+        font-size: 18px;
+        line-height: 60px;
     }
 
     .lvn-container {
+        margin-top: 60px;
         height: calc(100vh - 60px);
+        padding: 14px;
     }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .tbl td:first-child {
+        width: 110px;
+        font-size: 13px;
+    }
+
+    .tbl td {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+/* ===== CHỮ ĐỎ ĐẬM TRONG BẢNG ===== */
+.tbl,
+.tbl th,
+.tbl td {
+    color: var(--text-red-dark);
+}
+
+.tbl th {
+    font-weight: bold;
+}
+
+/* ================== MÀU CHỮ CHUẨN LỊCH ================== */
+
+/* 1️⃣ TIÊU ĐỀ CÁC KHỐI (H2) – ĐỎ ĐẬM */
+h2 {
+    color: #8b0000;                /* đỏ đậm */
+    border-left: 6px solid #8b0000;
+    padding-left: 10px;
+    font-size: 22px;
+    margin: 22px 0 10px;
+}
+
+/* 2️⃣ TIÊU ĐỀ TRONG BẢNG (cột trái, th, b) – XANH ĐẬM */
+.tbl th,
+.tbl td b {
+    color: #003366;                /* xanh đậm */
+    font-weight: bold;
+}
+
+/* 3️⃣ NỘI DUNG DATA – ĐEN */
+.tbl td {
+    color: #111;
+}
+
+/* Đảm bảo span data luôn đen */
+.tbl td span,
+#dongcong_noidung {
+    color: #111;
 }
