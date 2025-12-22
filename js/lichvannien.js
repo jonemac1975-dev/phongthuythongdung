@@ -64,7 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
             dataGioHacDao,
             dataSaoTot,
             dataSaoXau,
-            dataGioThaiAt
+            dataGioThaiAt,
+	    dataHyTai,          // 🔽 THÊM
+            dataNgayXungTuoi    // 🔽 THÊM
         ] = await Promise.all([
             loadNode("lichvannien/12truc"),
             loadNode("lichvannien/24tiet"),
@@ -75,7 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
             loadNode("lichvannien/giohacdao"),
             loadNode("lichvannien/saotot"),
             loadNode("lichvannien/saoxau"),
-            loadNode("lichvannien/giothaiat")
+            loadNode("lichvannien/giothaiat"),
+            loadNode("lichvannien/hytai"),        // 🔽 THÊM
+            loadNode("lichvannien/ngayxungtuoi")  // 🔽 THÊM
         ]);
 
         // NGÀY ÂM
@@ -98,6 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const canGioTyIndex = (Can.indexOf(canNgay)*2+10)%10;
         const canGio = Can[(canGioTyIndex+chiGioIndex)%10];
 
+
+// ===== KEY CHUẨN (KHỚP JSON) =====
+const CAN_KEY = ["giap","at","binh","dinh","mau","ky","canh","tan","nham","quy"];
+const CHI_KEY = ["ti","suu","dan","mao","thin","ty","ngo","mui","than","dau","tuat","hoi"];
+
+const canNgayKey = CAN_KEY[(jd + 9) % 10];
+const chiNgayKey = CHI_KEY[(jd + 1) % 12];
+
+// DÙNG CHO ngayxungtuoi (ví dụ: atsuu)
+const napAmNgayKey = canNgayKey + chiNgayKey;
+
+
+
         setText("canamnam", canNam); setText("chinamnam", chiNam);
         setText("canamthang", canThang); setText("chiamthang", chiThang);
         setText("canamngay", canNgay); setText("chiamngay", chiNgay);
@@ -109,6 +126,23 @@ document.addEventListener("DOMContentLoaded", () => {
         setText("napamthang", napAm[`${canThang} ${chiThang}`]||"");
         setText("napamngay", napAm[napAmNgayFull]||"");
         setText("napamgio", napAm[`${canGio} ${chiGio}`]||"");
+
+
+// ================== NGÀY XUNG TUỔI ==================
+const ngayXung = dataNgayXungTuoi?.[napAmNgayKey];
+setText("tuoixung", ngayXung?.tuoixung || "--");
+
+// ================== HỶ – TÀI ==================
+const hyTai = dataHyTai?.[canNgayKey];
+
+setText("hythan",   hyTai?.hythan   || "--");
+setText("taithan",  hyTai?.taithan  || "--");
+setText("loc",      hyTai?.loc      || "--");
+setText("quyam",    hyTai?.quyam    || "--");
+setText("quyduong", hyTai?.quyduong || "--");
+
+
+
 
         // 12 TRỰC
         const chiThangNorm = chiThang.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
