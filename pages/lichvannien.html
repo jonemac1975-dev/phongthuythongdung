@@ -10,12 +10,17 @@
 <body>
 
 <!-- ===== NÚT VỀ TRANG CHÍNH ===== -->
+
+
 <div class="lvn-container">
+
  <div class="lvn-header">
-   <div class="lvn-home">
-        <a href="../index.html">← Home</a> 
+    <div class="logo">
+        <img src="../assets/img/logo.png" alt="Logo" />
+    </div>
     <h1>LỊCH VẠN NIÊN</h1>
-    
+    <div class="lvn-home">
+        <a href="../index.html">← Home</a>
     </div>
 </div>
 
@@ -66,6 +71,25 @@
           <td id="napamgio"></td>
       </tr>
   </table>
+
+<!-- Ngày xung tuổi -->
+  <h2>Ngày xung tuổi</h2>
+  <table class="tbl">
+      <tr><td><b>Tuổi xung<b></td><td id="tuoixung"></td></tr>
+  </table>
+
+
+<!-- Hỷ Tài -->
+  <h2>Hỷ - Tài</h2>
+  <table class="tbl">
+      <tr><td><b>Hỷ Thần<b></td><td id="hythan"></td></tr>
+      <tr><td><b>Tài Thần<b></td><td id="taithan"></td></tr>
+      <tr><td><b>Lộc<b></td><td id="loc"></td></tr>
+      <tr><td><b>Quý Âm<b></td><td id="quyam"></td></tr>
+      <tr><td><b>Quý Dương<b></td><td id="quyduong"></td></tr>
+  </table>
+
+
 
   <!-- Tiết khí – Trực -->
   <h2>Tiết khí – Trực</h2>
@@ -132,12 +156,9 @@
 
 </div>
 
-<!-- JS xử lý lịch âm dương -->
+
 <script src="../js/core/doiamduong.js"></script>
 <script src="../js/thangam.js"></script>
-
-<!-- JS chính của trang Lịch Vạn Niên -->
-
 <script type="module" src="../js/lichvannien.js"></script>
 
 
