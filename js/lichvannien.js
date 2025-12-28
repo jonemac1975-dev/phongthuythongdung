@@ -190,20 +190,34 @@ setText("quyduong", hyTai?.quyduong || "--");
         setText("dongcong_noidung", dongCongText);
 
         // GIỜ HOÀNG – HẮC
-        if(chiNgay && dataGioHoangDao && dataGioHacDao){
-            const chiNorm = chiNgay.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-            const hd = dataGioHoangDao?.giohoangdao?.[chiNorm] || null;
-            const xd = dataGioHacDao?.giohacdao?.[chiNorm] || null;
-            const tbody = document.getElementById("gio_list");
-            if(tbody){
-                tbody.innerHTML="";
-                for(let i=1;i<=6;i++){
-                    const tenHD=hd?hd[`tengio${i}`]||"":""; const gioHD=hd?hd[`gio${i}`]||"":""; 
-                    const tenXD=xd?xd[`tengio${i}`]||"":""; const gioXD=xd?xd[`gio${i}`]||"":""; 
-                    tbody.innerHTML+=`<tr><td>${tenHD} (${gioHD})</td><td>${tenXD} (${gioXD})</td></tr>`;
-                }
-            }
+if (chiNgay && dataGioHoangDao && dataGioHacDao) {
+
+    const chiKey = chiNgayKey; // ti | ty | suu | ...
+
+    // 🔴 SỬA Ở ĐÂY: BỎ .giohoangdao / .giohacdao
+    const hd = dataGioHoangDao?.[chiKey] || null;
+    const xd = dataGioHacDao?.[chiKey] || null;
+
+    const tbody = document.getElementById("gio_list");
+    if (tbody) {
+        tbody.innerHTML = "";
+
+        for (let i = 1; i <= 6; i++) {
+            const tenHD = hd?.[`tengio${i}`] || "";
+            const gioHD = hd?.[`gio${i}`] || "";
+
+            const tenXD = xd?.[`tengio${i}`] || "";
+            const gioXD = xd?.[`gio${i}`] || "";
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${tenHD}${gioHD ? ` (${gioHD})` : ""}</td>
+                    <td>${tenXD}${gioXD ? ` (${gioXD})` : ""}</td>
+                </tr>`;
         }
+    }
+}
+
 
         // ================== BÁCH THẦN ==================
         function loadBachThan(napAmNgay, dataBachThan){
