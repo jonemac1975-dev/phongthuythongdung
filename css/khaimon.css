@@ -1,0 +1,197 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+}
+
+/* ===== back home ===== */
+.back-home {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #444;
+}
+
+/* ===== title ===== */
+.page-title {
+  text-align: center;
+  color: darkred;
+  margin-bottom: 14px;
+  font-size: 200%;
+}
+
+/* tiêu đề phần */
+.km-box h3 {
+  color: darkred;
+  font-size: 110%;
+  margin-bottom: 10px;
+}
+
+/* ===== box chung ===== */
+.km-box {
+  width: 50%;
+  margin: 26px auto;
+  padding: 12px 0;
+}
+
+/* ===== filters ===== */
+.km-filters {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+
+.km-filters label {
+  font-size: 110%;
+  font-weight: 600;
+}
+
+.km-filters select {
+  font-size: 110%;
+  padding: 4px 6px;
+}
+
+/* ===== nhãn trên / dưới ===== */
+.labels-top,
+.labels-bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin: 6px 0;
+  color: #1b5e20;
+}
+
+/* ===== CỬU VẬN ===== */
+.cuuvan-wrap {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+}
+
+.side-label {
+  font-weight: bold;
+  text-align: center;
+  font-size: 110%;
+}
+
+.side-label.left {
+  color: #2e7d32;
+}
+
+.side-label.right {
+  color: #555;
+}
+
+.cuuvan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.cung {
+  border: 1px solid #333;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ===== Ô PHẦN 1 – cao +50% ===== */
+.cung .v,
+.cung .n,
+.cung .t {
+  min-height: 42px;
+  border: 1px solid #333;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.lmq {
+  grid-column: span 3;
+  min-height: 40px;
+  border-top: 1px solid #333;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 115%;
+  text-align: center;
+  padding: 6px;
+}
+
+/* ===== màu nền đặc biệt ===== */
+.red {
+  background: #c00;
+  color: #fff !important;
+}
+
+.blue {
+  background: #0b6fd6;
+  color: #fff !important;
+}
+
+/* ===== KHAI MÔN ===== */
+.khaimon-wrap {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  align-items: center;
+}
+
+.khaimon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ===== Ô PHẦN 2 – cao +100% ===== */
+.khaimon-grid div {
+  border: 1px solid #333;
+  min-height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  font-size: 120%;
+  font-weight: 600;
+  padding: 8px;
+  line-height: 1.4;
+}
+
+/* =========================
+   MÀU THEO CUNG – CHỐT HẠ
+========================= */
+
+/* LY – đỏ */
+#ly, #lyv, #lyn, #lyt, #lylmq {
+  color: #c62828;
+}
+
+/* CHẤN + TỐN – xanh lá */
+#chan, #chanv, #chann, #chant, #chanlmq,
+#ton, #tonv, #tonn, #tont, #tonlmq {
+  color: #2e7d32;
+}
+
+/* CẤN + KHÔN – vàng đất đậm */
+#cans, #cansv, #cansn, #canst, #canslmq,
+#khon, #khonv, #khonn, #khont, #khonlmq {
+  color: #8d6e00;
+}
+
+/* CÀN + ĐOÀI – ghi đậm */
+#can, #canv, #cann, #cant, #canlmq,
+#doai, #doaiv, #doain, #doait, #doailmq {
+  color: #424242;
+}
+
+/* KHẢM – đen */
+#kham, #khamv, #khamn, #khamt, #khamlmq {
+  color: #000;
+}
