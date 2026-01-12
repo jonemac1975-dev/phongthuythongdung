@@ -13,39 +13,53 @@
 <div id="layout">
 
     <!-- ===== CỘT TRÁI: MENU ===== -->
-    <aside id="menu">
-        <h2>Menu</h2>
-        <ul>
-            <li data-page="lichvannien">Lịch Vạn Niên</li>
-	    <li data-page="nguhanhkhuyet">Thông tin bản mệnh</li>
-	    <li data-page="huyenkhongphitinh">Dương trạch + HK Phi Tinh</li>
-			<li data-page="khaimon">Khai Môn Điểm Thần Sát</li>
-            <li data-page="duongtrachtamyeu">Dương Trạch Tam Yếu</li>
-	    <li data-page="tailieu">Tài liệu tham khảo</li>
-        </ul>
-<!-- ===== BOX LIÊN HỆ ===== -->
-<div class="menu-contact">
-  <div class="contact-image">
-    <img src="assets/img/contact.png" alt="Liên hệ phong thủy">
+<aside id="menu">
+  <h2>Menu</h2>
+  <ul>
+    <li data-page="lichvannien">Lịch Vạn Niên</li>
+    <li data-page="nguhanhkhuyet">Thông tin bản mệnh</li>
+    <li data-page="huyenkhongphitinh">Dương trạch + HK Phi Tinh</li>
+    <li data-page="khaimon">Khai môn điểm thần sát</li>
+    <li data-page="duongtrachtamyeu">Dương Trạch Tam Yếu</li>
+    <li data-page="tailieu">Tài liệu tham khảo</li>
+  </ul>
+
+  <!-- box hình liên hệ (nếu muốn giữ) -->
+  <div class="menu-contact">
+    <div class="contact-image">
+      <img src="assets/img/contact.png" alt="Liên hệ phong thủy">
+    </div>
+  </div>
+</aside>
+
+<!-- ===== CONTACT FLOAT (để ngoài aside) ===== -->
+<div class="contact-float">
+
+  <div class="contact-btn phone">
+    <a href="tel:0982175887">
+      <img src="assets/img/icon-phone.png">
+    </a>
+    <span class="tooltip">Gọi điện</span>
   </div>
 
-  <a href="https://facebook.com/" target="_blank" class="contact-link">
-  <img src="assets/img/icon-facebook.png" alt="">
-  <span>Facebook</span>
-</a>
+  <div class="contact-btn zalo">
+    <img src="assets/img/icon-zalo.png">
+    <span class="tooltip">Zalo</span>
+    <div class="qr-box">
+      <img src="assets/img/zalo-qr.png">
+      <p>Quét QR Zalo</p>
+    </div>
+  </div>
 
-<a href="https://zalo.me/0123456789" target="_blank" class="contact-link">
-  <img src="assets/img/icon-zalo.png" alt="">
-  <span>Zalo</span>
-</a>
-
-<a href="tel:0123456789" class="contact-link">
-  <img src="assets/img/icon-phone.png" alt="">
-  <span>Điện thoại</span>
-</a>
+  <div class="contact-btn facebook">
+    <a href="https://facebook.com/truongthanh101071" target="_blank">
+      <img src="assets/img/icon-facebook.png">
+    </a>
+    <span class="tooltip">Facebook</span>
+  </div>
 
 </div>
-    </aside>
+
 
 
     <!-- ===== CỘT PHẢI: VÙNG CONTENT ===== -->
@@ -56,6 +70,7 @@
     </main>
 
 </div>
+
 
 <!-- Chỉ dùng cho menu, không tính toán gì -->
 <script src="js/index.js"></script>
