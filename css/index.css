@@ -1,112 +1,93 @@
-/* ===== RESET CƠ BẢN ===== */
+/* ==========================
+   RESET CƠ BẢN
+========================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
+/* ==========================
+   LAYOUT CHÍNH
+========================== */
 #layout {
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
 }
 
-/* ===== MENU BÊN TRÁI ===== */
+/* ==========================
+   MENU BÊN TRÁI
+========================== */
 #menu {
-    width: 28%;              /* > 15% theo yêu cầu */
-    min-width: 260px;        /* không quá hẹp */
-    max-width: 320px;        /* không quá to */
-    background: #2c3e50;
-    color: #fff;
-    padding: 20px;
+  width: 28%;
+  min-width: 260px;
+  max-width: 320px;
+  background: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
 }
-
 
 #menu h2 {
-    margin-bottom: 20px;
-    font-size: 30px;
+  margin-bottom: 20px;
+  font-size: 30px;
 }
 
 #menu ul {
-    list-style: none;
+  list-style: none;
 }
 
 #menu li {
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    background: #34495e;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background: #34495e;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 #menu li:hover {
-    background: #3d566e;
+  background: #3d566e;
 }
 
-/* ===== VÙNG NỘI DUNG ===== */
+/* ==========================
+   VÙNG NỘI DUNG
+========================== */
 #content {
-    flex: 1;
-    padding: 25px;
-    background: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px;
 }
 
 #content h2 {
-    font-weight: normal;
-    color: #333;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-
-
-/* chỉ hiện trên PC */
-@media (max-width: 768px) {
-    #globe-container {
-        display: none;
-    }
-}
-
-#globe-container canvas {
-  display: block;
-  cursor: pointer;
-}
-
-
-
-/* ===== GLOBE 3D ===== */
+/* ==========================
+   GLOBE 3D
+========================== */
 #globe-3d {
-  width: 320px;   /* mặc định PC */
-  height: 320px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  margin: 30px auto;
-}
-
-
-#globe-3d {
-  width: 320px;
-  height: 320px;
+  width: 80%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  margin: 20px auto;
   border-radius: 50%;
   overflow: hidden;
   background: radial-gradient(circle at 30% 30%, #111, #000);
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  margin: 30px auto;
 }
-
-@media (max-width: 768px) {
-  #globe-3d {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-
 
 #globe-3d canvas {
   width: 100% !important;
@@ -114,10 +95,9 @@ body {
   display: block;
 }
 
-
-
-
-/* ===== MENU CONTACT BOX ===== */
+/* ==========================
+   MENU CONTACT BOX (TRONG MENU)
+========================== */
 .menu-contact {
   margin-top: 16px;
   padding-top: 12px;
@@ -125,98 +105,106 @@ body {
   text-align: center;
 }
 
-/* ô ảnh */
 .contact-image img {
-  width: 100%;
   max-width: 290px;
-  height: auto;
-  object-fit: contain;
   border-radius: 8px;
   background: #fffbe8;
   padding: 8px;
-  /* display: block;
-     margin: 0 auto; */
 }
 
-
-
-/* icon hàng ngang */
-.contact-icons {
-  margin-top: 8px;
+/* ==========================
+   CONTACT FLOAT (ICON NỔI)
+========================== */
+/* ==========================
+   CONTACT FLOAT – FIX SẠCH
+========================== */
+.contact-float {
+  position: fixed;
+  right: 18px;
+  bottom: 80px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 14px;
+  z-index: 9999;
 }
 
-.contact-icons img {
-  width: 28px;
-  height: 28px;
-  opacity: 0.85;
-  transition: transform 0.2s, opacity 0.2s;
+.contact-btn {
+  position: relative;
+  cursor: pointer;
 }
 
-.contact-icons img:hover {
-  transform: scale(1.15);
+.contact-btn img {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+/* TOOLTIP */
+.tooltip {
+  position: absolute;
+  right: 55px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.contact-btn:hover .tooltip {
   opacity: 1;
 }
 
+/* QR ZALO */
+.qr-box {
+  position: absolute;
+  right: 55px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  background: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.3);
+  text-align: center;
 
-/* ===============================
-   FORCE CHỮ ZALO / FB / ĐT MÀU TRẮNG
-   =============================== */
-
-#menu .menu-contact a,
-#menu .menu-contact a:link,
-#menu .menu-contact a:visited,
-#menu .menu-contact a:hover,
-#menu .menu-contact a:active {
-  color: #ffffff !important;
-  text-decoration: none !important;
+  display: none;
+  width: 220px;
 }
 
+.qr-box img {
+  width: 200px;
+  height: auto;
+}
 
+.qr-box p {
+  font-size: 13px;
+  margin-top: 8px;
+  color: #333;
+}
 
+/* HOVER ZALO HIỆN QR */
+.contact-btn.zalo:hover .qr-box {
+  display: block;
+}
 
-
-/* ===== MOBILE ===== */
+/* ==========================
+   RESPONSIVE
+========================== */
 @media (max-width: 768px) {
+  #layout {
+    flex-direction: column;
+  }
+
   #menu {
     width: 100%;
-    min-width: unset;
-    max-width: unset;
   }
 
-  .contact-image img {
-    max-width: 160px;
+  #globe-3d {
+    max-width: 200px;
   }
-
-  .contact-icons img {
-    width: 26px;
-    height: 26px;
-  }
-}
-/* ===== CONTACT LINK (ICON + CHỮ TRẮNG) ===== */
-#menu .menu-contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-#menu .menu-contact .contact-link {
-  display: flex;
-  flex-direction: column;   /* icon trên – chữ dưới */
-  align-items: center;
-  gap: 4px;
-  color: #ffffff !important;
-  text-decoration: none !important;
-  font-size: 12px;
-}
-
-#menu .menu-contact .contact-link span {
-  color: #ffffff !important;
-}
-
-#menu .menu-contact .contact-link:hover span {
-  color: #fdf6d0 !important;
 }
