@@ -12,62 +12,49 @@
 <body>
 <div id="layout">
 
-    <!-- ===== CỘT TRÁI: MENU ===== -->
-<aside id="menu">
-  <h2>Menu</h2>
-  <ul>
-    <li data-page="lichvannien">Lịch Vạn Niên</li>
-    <li data-page="nguhanhkhuyet">Thông tin bản mệnh</li>
-    <li data-page="huyenkhongphitinh">Dương trạch + HK Phi Tinh</li>
-    <li data-page="khaimon">Khai môn điểm thần sát</li>
-    <li data-page="duongtrachtamyeu">Dương Trạch Tam Yếu</li>
-    <li data-page="tailieu">Tài liệu tham khảo</li>
-  </ul>
+    <div id="layout">
 
-  <!-- box hình liên hệ (nếu muốn giữ) -->
-  <div class="menu-contact">
-    <div class="contact-image">
-      <img src="assets/img/contact.png" alt="Liên hệ phong thủy">
+  <!-- ===== CỘT TRÁI: MENU ===== -->
+  <aside id="menu">
+    <h2>Menu</h2>
+
+    <ul>
+      <li data-page="lichvannien">Lịch Vạn Niên</li>
+      <li data-page="nguhanhkhuyet">Thông tin bản mệnh</li>
+      <li data-page="huyenkhongphitinh">Dương trạch + HK Phi Tinh</li>
+      <li data-page="khaimon">Khai môn điểm thần sát</li>
+      <li data-page="duongtrachtamyeu">Dương Trạch Tam Yếu</li>
+      <li data-page="tailieu">Tài liệu tham khảo</li>
+    </ul>
+
+    <!-- HÌNH + ICON LIÊN HỆ -->
+    <div class="menu-contact">
+      <div class="contact-image">
+        <img src="assets/img/contact.png" alt="Liên hệ phong thủy">
+      </div>
+
+      <div class="menu-contact-icons">
+        <a href="tel:0982175887">
+          <img src="assets/img/icon-phone.png">
+        </a>
+
+        <a href="https://zalo.me/0982175887" target="_blank">
+          <img src="assets/img/icon-zalo.png">
+        </a>
+
+        <a href="https://facebook.com/truongthanh101071" target="_blank">
+          <img src="assets/img/icon-facebook.png">
+        </a>
+      </div>
     </div>
-  </div>
-</aside>
+  </aside>
 
-<!-- ===== CONTACT FLOAT (để ngoài aside) ===== -->
-<div class="contact-float">
+  <!-- ===== CỘT PHẢI: CONTENT ===== -->
+  <main id="content">
+    <h2>PHONG THỦY THÔNG DỤNG</h2>
 
-  <div class="contact-btn phone">
-    <a href="tel:0982175887">
-      <img src="assets/img/icon-phone.png">
-    </a>
-    <span class="tooltip">Gọi điện</span>
-  </div>
-
-  <div class="contact-btn zalo">
-    <img src="assets/img/icon-zalo.png">
-    <span class="tooltip">Zalo</span>
-    <div class="qr-box">
-      <img src="assets/img/zalo-qr.png">
-      <p>Quét QR Zalo</p>
-    </div>
-  </div>
-
-  <div class="contact-btn facebook">
-    <a href="https://facebook.com/truongthanh101071" target="_blank">
-      <img src="assets/img/icon-facebook.png">
-    </a>
-    <span class="tooltip">Facebook</span>
-  </div>
-
-</div>
-
-
-
-    <!-- ===== CỘT PHẢI: VÙNG CONTENT ===== -->
-    <main id="content">
-        <h2><b>PHONG THỦY THÔNG DỤNG</h2>
-    <div id="globe-3d" style="width:520px; height:520px; margin: 30px auto;"></div>
-
-    </main>
+    <div id="globe-3d"></div>
+  </main>
 
 </div>
 
