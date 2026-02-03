@@ -17,27 +17,24 @@ body {
 ========================== */
 #layout {
   display: flex;
-  width: 100%;
   min-height: 100vh;
+  width: 100%;
 }
 
 /* ==========================
    MENU BÊN TRÁI
 ========================== */
 #menu {
-  width: 28%;
-  min-width: 260px;
-  max-width: 320px;
+  width: 280px;
+  flex-shrink: 0;
   background: #2c3e50;
   color: #fff;
   padding: 20px;
-  position: relative;
-  z-index: 1;
 }
 
 #menu h2 {
-  margin-bottom: 20px;
-  font-size: 30px;
+  margin-bottom: 15px;
+  font-size: 26px;
 }
 
 #menu ul {
@@ -45,12 +42,11 @@ body {
 }
 
 #menu li {
-  padding: 10px 15px;
+  padding: 10px 14px;
   margin-bottom: 8px;
   background: #34495e;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 #menu li:hover {
@@ -58,45 +54,7 @@ body {
 }
 
 /* ==========================
-   VÙNG NỘI DUNG
-========================== */
-#content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 25px;
-}
-
-#content h2 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* ==========================
-   GLOBE 3D
-========================== */
-#globe-3d {
-  width: 80%;
-  max-width: 520px;
-  aspect-ratio: 1 / 1;
-  margin: 20px auto;
-  border-radius: 50%;
-  overflow: hidden;
-  background: radial-gradient(circle at 30% 30%, #111, #000);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-#globe-3d canvas {
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-}
-
-/* ==========================
-   MENU CONTACT BOX (TRONG MENU)
+   MENU CONTACT
 ========================== */
 .menu-contact {
   margin-top: 16px;
@@ -106,94 +64,52 @@ body {
 }
 
 .contact-image img {
-  max-width: 290px;
+  max-width: 100%;
   border-radius: 8px;
   background: #fffbe8;
-  padding: 8px;
+  padding: 6px;
 }
 
-/* ==========================
-   CONTACT FLOAT (ICON NỔI)
-========================== */
-/* ==========================
-   CONTACT FLOAT – FIX SẠCH
-========================== */
-.contact-float {
-  position: fixed;
-  right: 18px;
-  bottom: 80px;
+/* ICON LIÊN HỆ */
+.menu-contact-icons {
+  margin-top: 12px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 14px;
-  z-index: 9999;
 }
 
-.contact-btn {
-  position: relative;
-  cursor: pointer;
+.menu-contact-icons img {
+  width: 34px;
+  height: 34px;
 }
 
-.contact-btn img {
-  width: 36px;
-  height: 36px;
-  display: block;
-}
-
-/* TOOLTIP */
-.tooltip {
-  position: absolute;
-  right: 55px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #000;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 13px;
-  white-space: nowrap;
-  opacity: 0;
-  transition: 0.2s;
-}
-
-.contact-btn:hover .tooltip {
-  opacity: 1;
-}
-
-/* QR ZALO */
-.qr-box {
-  position: absolute;
-  right: 55px;
-  top: 50%;
-  transform: translateY(-50%);
-  
-  background: #fff;
-  padding: 14px;
-  border-radius: 12px;
-  box-shadow: 0 4px 18px rgba(0,0,0,.3);
+/* ==========================
+   CONTENT
+========================== */
+#content {
+  flex: 1;
+  padding: 25px;
   text-align: center;
-
-  display: none;
-  width: 220px;
 }
 
-.qr-box img {
-  width: 200px;
-  height: auto;
-}
-
-.qr-box p {
-  font-size: 13px;
-  margin-top: 8px;
+#content h2 {
+  margin-bottom: 20px;
   color: #333;
 }
 
-/* HOVER ZALO HIỆN QR */
-.contact-btn.zalo:hover .qr-box {
-  display: block;
+/* GLOBE */
+#globe-3d {
+  width: 420px;
+  max-width: 90%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
 }
 
 /* ==========================
-   RESPONSIVE
+   RESPONSIVE MOBILE
 ========================== */
 @media (max-width: 768px) {
   #layout {
@@ -205,6 +121,6 @@ body {
   }
 
   #globe-3d {
-    max-width: 200px;
+    width: 220px;
   }
 }
